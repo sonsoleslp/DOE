@@ -1,8 +1,45 @@
 body {
-  padding: 50px;
+
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.center{
+	text-align: center;
+}
+nav{
+
+	font: 22px "Lucida Grande", Helvetica, Arial, sans-serif;
+	vertical-align: middle;
+	
+	right:0;
+	left:0;
+	background-color: #555;
+	top:0;
+	position:absolute;
+	/*width:100%;*/
+	color:#ccc;
+	height:60px;
+	 display:block;
+}
+.barra{
+	margin:3px;
+	text-align: center;
+	padding-left:40px;
+	padding-right:30px;
+	vertical-align: middle;
+	line-height: 60px;
+}
+.barra:hover{
+	color:white;
+}
+
+.doe{
+	left:0;
+	width:100%;
+	
+	border:1px solid #ddd;
 }
