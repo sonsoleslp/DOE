@@ -43,3 +43,8 @@ nav{
 	
 	border:1px solid #ddd;
 }
+
+a{
+	text-decoration: none;
+	color:inherit;
+}
