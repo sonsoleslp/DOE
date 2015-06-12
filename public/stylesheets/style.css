@@ -1,6 +1,22 @@
+/* latin */
+@font-face {
+  font-family: 'Monte';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+
+html{
+	font-family: "Monte";
+}
+
 body {
 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-family: "Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -12,7 +28,7 @@ a {
 }
 nav{
 
-	font: 22px "Lucida Grande", Helvetica, Arial, sans-serif;
+	font-size:22px;
 	vertical-align: middle;
 	
 	right:0;
@@ -23,7 +39,7 @@ nav{
 	/*width:100%;*/
 	color:#ccc;
 	height:60px;
-	 display:block;
+	
 }
 .barra{
 	margin:3px;
@@ -33,14 +49,28 @@ nav{
 	vertical-align: middle;
 	line-height: 60px;
 }
-.barra:hover{
-	color:white;
+
+.logo{
+		height:40px;
+			vertical-align: middle;
+
 }
 
-.doe{
-	left:0;
-	width:100%;
-	
+.barra2{
+	margin:3px;
+	text-align: center;
+	padding-left:40px;
+	padding-right:30px;
+
+	line-height: 60px;
+
+}
+.barra:hover{
+	color:#05E28E;
+}
+
+#doe{
+
 	border:1px solid #ddd;
 }
 
@@ -48,3 +78,75 @@ a{
 	text-decoration: none;
 	color:inherit;
 }
+
+td,th{
+	padding:10px;
+	border:none;
+	text-align: center;
+}
+
+
+.cabecera{
+	background-color:#ddd;
+	
+}
+
+.fila{
+	background-color:  #fafafa;
+
+}
+.about{margin:20px;}
+.ab{display:inline-block;}
+.abcont{
+text-align: center;}
+
+.caja{
+	width:60px;
+	outline-color: #05E28E;
+}
+
+.bloque{
+	margin:20px;
+}
+
+.rem, .caja{
+	margin:5px;
+}
+#sss {
+    font-size: 14px;
+  font-family: "Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
+  border:none;
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  color: #ffffff;
+  background: #333;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  outline:none;
+}
+
+#sss:hover {
+  background: #05E28E;
+  text-decoration: none;
+  outline:none;
+}
+
+#mini:hover{
+	transform:scale(1.2);  
+
+}
+
+#gris{
+	color:#777;
+}
+
+::-moz-selection{
+   background-color:rgb(7,226,142);
+
+}
+::selection{
+  
+    background-color:rgb(7,226,142);
+}
+

@@ -1,0 +1,19 @@
+
+<br><br><br>
+<h2 align="center">Edit</h2> <p>
+
+<form align="center" class="bloque"  method="post" action="/update">
+
+		<label for="orden" class="rem">Orden:</label>
+		<input type="text" class="caja" id="orden" name="orden" value="<%=medio.orden %>"/> <p>
+		<label for ="er" class="rem">ε<sub>r</sub>:</label>
+		<input type="text" class="caja" id="er" name="er" value="<%=medio.er %>"/> <p>
+		<label for ="mur" class="rem">μ<sub>r</sub>:</label>
+		<input type="text" class="caja" id="mur" name="mur" value="<%=medio.mur %>"/> <p>
+		<label for ="grosor" class="rem">Grosor:</label>
+		<input type="text" class="caja" id="grosor" name="grosor" value="<%=medio.grosor %>"/> <p>
+		<a href="/list"><button id="sss" type="button">Cancel</button></a>
+		<button  id= "sss" onclick="this.disabled=true; this.form.submit();" value="Salvar">Save</button>
+
+</form>
+ 

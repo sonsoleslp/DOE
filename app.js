@@ -6,8 +6,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var partials = require('express-partials');
+var methodOverride = require('method-override');
+var session = require('express-session');
 var routes = require('./routes/index');
-
 
 var app = express();
 
@@ -15,13 +16,41 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(partials());
+
 // uncomment after placing your favicon in /public
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('DOE'));
+app.use(session());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+
+//Helpers dinámicos:
+app.use(function(req,res,next){
+    //si no existe lo inicializa
+    if(!req.session.redir){
+        req.session.redir = '/';
+    }
+    //guardar path en session.redir para despues de login
+
+    req.session.redir = req.path;
+
+    //hacer visible req.session en las vistas
+    res.locals.session = req.session;
+
+    if (!req.session.medios) { 
+        req.session.medios = [{grosor:50, mur:1, er:1},{grosor:12.5, mur:1, er:4},{grosor:50, mur:1, er:1}];
+        req.session.freq = 3;
+
+    }
+
+    next();
+
+});
 
 app.use('/', routes);
 

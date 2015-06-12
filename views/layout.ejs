@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>DOE</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <nav><span class="barra"><a href="/">Home</a></span><span class="barra"><a href="/draw">Draw</a></span><span class="barra"><a href="/about">About</a></span></nav>
+    <nav>
+      <span class="barra2"><img class="logo" src="/images/favicon.png"></span>
+      <span class="barra"><a href="/">Home</a></span>
+      <span class="barra"><a href="/draw">Draw</a></span>
+      <span class="barra"><a href="/list">List</a></span>
+      <span class="barra"><a href="/about">About</a></span>
+
+    </nav>
     <br><br>
     <section>
-    	<div class="center">
-      <%-body%>
-      </div>
+    	
+        <%-body%>
+     
     </section>
   </body>
 </html>
