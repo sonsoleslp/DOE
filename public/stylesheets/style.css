@@ -97,10 +97,14 @@ td,th{
 	background-color:  #fafafa;
 
 }
-.about{margin:20px;}
-.ab{display:inline-block;}
+.about{
+	margin:20px;}
+
+.ab{
+	display:inline-block;}
+
 .abcont{
-text-align: center;}
+	text-align: center;}
 
 .caja{
 	width:60px;
@@ -150,5 +154,12 @@ text-align: center;}
 ::selection{
   
     background-color:rgb(7,226,142);
+}
+
+#welcome{
+	width:150px;
+}
+.ab{
+	font-size: 12px;
 }
 
