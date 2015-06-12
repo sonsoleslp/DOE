@@ -1,5 +1,207 @@
+<br><br>
+<canvas align="center" id="doe">
 
-<br>
-<br>
+</canvas>
 
-<canvas class="doe"></canvas>
+
+
+<!--
+public void redibujar(Canvas canvas) {
+
+		DecimalFormat df = new DecimalFormat("##.##");
+		DecimalFormat de = new DecimalFormat("#.##");
+		Diagrama diag = Diagrama.getInstance();
+		List<Medio> medios = diag.getLista();
+		int numeromedios = medios.size();
+		if (numeromedios == 0)
+			return;
+		// Calcula todos los parametros
+		diag.cote();
+
+		float largo = 0;
+		float alto = canvas.getHeight();
+
+		// Reparte el canvas entre el grosor total
+		for (int i = 0; i < numeromedios; i++) {
+
+			largo += medios.get(i).getGrosor();
+
+		}
+
+		double maximoro = medios.get(0).getModuloro();
+		double minimae = medios.get(0).getEta();
+		float dx = 0;
+		int total = canvas.getWidth() - 2 * (MARGEN + 1);
+		float k = total / largo;
+		double dif = largo / total;
+		double puntonuevo = 0;
+		double coef = 2 * Math.sqrt(medios.get(0).getEta()
+				* 2
+				/ (2 * medios.get(0).getEta())
+				/ (1 - medios.get(0).getModuloro()
+						* medios.get(0).getModuloro()));
+
+		for (int i = 0; i < numeromedios; i++) {
+
+			dx += (float) medios.get(i).getGrosor() * k;
+			if (medios.get(i).getModuloro() > maximoro)
+				maximoro = medios.get(i).getModuloro();
+			if (medios.get(i).getEta() < maximoro)
+				minimae = medios.get(i).getEta();
+			puntonuevo += medios.get(i).getGrosor() / 2 * k;
+			double coefi = 2 * Math.sqrt(medios.get(i).getEta()
+					* 2
+					/ (2 * medios.get(0).getEta())
+					/ (1 - medios.get(i).getModuloro()
+							* medios.get(i).getModuloro()));
+			if (coefi > coef)
+				coef = coefi;
+			double frac = ((120 * Math.PI) / medios.get(i).getEta());
+			if (frac / (int) frac == 1 && frac != 1) {
+				int f = (int) frac;
+				canvas.drawText("η0/" + f, (float) puntonuevo,
+						canvas.getHeight() / 8, paint);
+			} else if (frac == 1)
+				canvas.drawText("η0", (float) puntonuevo,
+						canvas.getHeight() / 8, paint);
+			else {
+				canvas.drawText("η0/" + df.format(frac), (float) puntonuevo,
+						canvas.getHeight() / 8, paint);
+			}
+			double COE = (1 + medios.get(i).getModuloro())
+					/ (1 - medios.get(i).getModuloro());
+			canvas.drawText("COE: " + df.format(COE), (float) puntonuevo,
+					canvas.getHeight() * 6 / 8, paint);
+
+			if (i != 0 && i != numeromedios - 1) // Solo especifica el grosor
+													// para las laminas
+													// intermedias
+				drawMultilineText(
+						df.format(medios.get(i).getGrosor()) + "\nmm",
+						(int) puntonuevo, canvas.getHeight() * 15 / 16, paint,
+						canvas);
+			paint.setTextAlign(Align.LEFT);
+
+			// canvas.drawText(""+df.format(medios.get(i).getGrosor())+" mm",
+			// (float)puntonuevo- MARGEN,canvas.getHeight()*15/16, paint);
+
+			puntonuevo += medios.get(i).getGrosor() / 2 * k;
+
+			if (i != numeromedios - 1)
+				pintaImagen(canvas, R.drawable.flech, (int) dx + 4,
+						canvas.getHeight() / 2 - 3 * MARGEN);
+			if (i != numeromedios - 1)
+				pintaImagen(canvas, R.drawable.flech, (int) dx + 4,
+						canvas.getHeight() / 4);
+			if (i != numeromedios - 1)
+				canvas.drawLine(MARGEN - 1 + dx, MARGEN - 1, MARGEN - 1 + dx,
+						alto - MARGEN - 1, paint);
+			if (i != numeromedios - 1)
+				canvas.drawText(
+						"|ρ|=" + df.format(medios.get(i).getModuloro()),
+						dx - 5, canvas.getHeight() / 2, paint);
+			Complejo zv = (new Complejo(medios.get(i).getEta(), 0))
+					.multiplicacion((new Complejo(1, 0).suma(new Complejo(
+							medios.get(i).getModuloro(), medios.get(i)
+									.getFasei(), true))).division(new Complejo(
+							1, 0).resta(new Complejo(medios.get(i)
+							.getModuloro(), medios.get(i).getFasei(), true))));
+			paint.setTextAlign(Align.CENTER);
+
+			if (i != numeromedios - 1) // En el ultimo no es necesario
+				drawMultilineText("Z=" + zv.imprimir() + " \n Ω", (int) dx,
+						canvas.getHeight() / 4 + 3 * MARGEN, paint, canvas);
+			// canvas.drawText("Z="+zv.imprimir(), dx,
+			// canvas.getHeight()/4+3*MARGEN, paint);
+			paint.setTextAlign(Align.LEFT);
+
+		}
+
+		LinkedHashMap<Float, Float> puntos = new LinkedHashMap<>();
+
+		float z = (canvas.getHeight() - 2 * MARGEN) / (float) coef;
+
+		float marg = canvas.getWidth();
+		float startX = 0;
+		float startY = 0;
+
+		double ro = 0;
+		double coe = 1;
+
+		// Comienza a dibujar el DOE de derecha a izquierda
+		for (int a = numeromedios - 1; a >= 0; a--) {
+			double jmax = 0;
+			double imax = 0;
+			double jmin = 1;
+			double imin = 0;
+			Medio m = medios.get(a);
+			double gro = medios.get(a).getGrosor();
+			double anc = k * gro;
+			double beta = 2 * Math.PI / m.getL();
+
+			ro = m.getModuloro();
+			double fi = m.getFasei();
+			coe = m.getCOE();
+			double mult = Math.sqrt(m.getEta()
+					* 2
+					/ (2 * medios.get(0).getEta())
+					/ (1 - m.getModuloro() * m.getModuloro())
+					* (1 - medios.get(0).getModuloro()
+							* medios.get(0).getModuloro()));
+
+			for (double i = 0; i <= gro;) {
+				// Ecuacion del doe
+				double j = mult
+						* Math.abs(Math.sqrt(2 * Math.cos(2 * beta * (i) + fi)
+								* Math.abs(ro) + 1 + ro * ro));
+
+				float x = (float) (marg - i * k - MARGEN - 3);
+				float y = -(float) j * z + canvas.getHeight() - MARGEN;
+				if (y < MARGEN - 1)
+					y = MARGEN - 1;
+
+				puntos.put((float) x, y);
+				if (a == numeromedios - 1 && i == 0) {
+					startX = x;
+					startY = y;
+				}
+				i += dif;
+				if (j > jmax) {
+					jmax = j;
+					imax = x;
+				}
+				if (j < jmin) {
+					jmin = j;
+					imin = x;
+				}
+
+			}
+			if (a == 0 && m.getModuloro() > 0.0001
+					&& jmax > (1 + m.getModuloro() - 0.001))
+				canvas.drawText("1+|ρ|", (float) imax - 3 * MARGEN,
+						-(float) jmax * z + canvas.getHeight() - MARGEN, paint);
+			if (a == 0 && m.getModuloro() > 0.0001
+					&& jmin < (1 - m.getModuloro() + 0.001))
+				canvas.drawText("1-|ρ|", (float) imin - 3 * MARGEN,
+						-(float) jmin * z + canvas.getHeight() + MARGEN, paint);
+
+			marg -= (float) anc;
+
+		}
+
+		paint.setStrokeWidth(2);
+		paint.setColor(Color.rgb(24, 172, 112));
+
+		for (float i : puntos.keySet()) {
+			float endX = i;
+			float endY = puntos.get(i);
+			canvas.drawLine(startX, startY, endX, endY, paint);
+
+			startX = endX;
+			startY = endY;
+		}
+
+		paint.setColor(Color.LTGRAY);
+
+	}
+-->
