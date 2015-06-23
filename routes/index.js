@@ -10,13 +10,13 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'DOE' });
 });
 
-router.get('/draw', function(req, res) {
-  res.render('draw', { title: 'DOE' });
-});
+
 router.get('/about', 	 function(req, res) {
   res.render('about', { title: 'DOE' });
 });
-router.get('/list', 	 diagrama.diagrama, mediosController.calcular);
+router.get('/list', 	diagrama.diagrama, mediosController.calcular);
+router.get('/draw',  	diagrama.diagrama, mediosController.dibujar);
+
 router.post('/new', 	 mediosController.new, diagrama.diagrama, mediosController.calcular);
 router.get('/add', 	 	 mediosController.add);
 router.get('/edit/:medioId(\\d+)', 	 mediosController.edit);

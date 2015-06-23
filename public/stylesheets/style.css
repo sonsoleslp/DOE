@@ -13,6 +13,7 @@
 
 html{
 	font-family: "Monte";
+	
 }
 
 body {
@@ -35,7 +36,7 @@ nav{
 	
 	right:0;
 	left:0;
-	background-color: #555;
+	background-color: #444;
 	top:0;
 	position:absolute;
 	/*width:100%;*/
@@ -43,6 +44,10 @@ nav{
 	height:60px;
 	
 }
+
+
+
+
 .barra{
 	margin:3px;
 	text-align: center;
@@ -72,8 +77,8 @@ nav{
 }
 
 #doe{
-
-	border:1px solid #ddd;
+	width:100%;
+	border:4px solid #ddd;
 }
 
 a{
@@ -162,4 +167,12 @@ td,th{
 .ab{
 	font-size: 12px;
 }
+
+.all{
+text-align: center;
+left:0px;
+right:8px;
+position:absolute; /* to place it somewhere on the screen */
+top:60px;
+bottom:0px;} /* makes it lock to the bottom */
 

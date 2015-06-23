@@ -11,14 +11,16 @@ var Complejo = require('../controllers/complejo.js');
 		
 	exports.calcular = function(req,res,next){
   		var medios = req.session.medios;
-
+  		console.log(medios);
   		res.render('lista',{medios:medios});
 	};
         
   
   	exports.dibujar = function(req,res,next){
   	
-
+		var medios = req.session.medios;
+		console.log("hey " +medios);
+  		res.render('draw',{medios:medios});
 
 
   	};
