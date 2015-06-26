@@ -3,13 +3,13 @@
 		function doe(width,height){
 			var MARGEN = 10;
 
-		var medios = medios;
+	
 		var numeromedios = medios.length;
 		if (numeromedios == 0)
 			return;
 		
-		float largo = 0;
-		float alto = height;
+		var largo = 0;
+		var alto = height;
 
 		// Reparte el canvas entre el grosor total
 		for (var i = 0; i < numeromedios; i++) {
@@ -25,11 +25,11 @@
 		var k = total / largo;
 		var dif = largo / total;
 		var puntonuevo = 0;
-		var coef = 2 * Math.sqrt(medios[0].eta
-				* 2
-				/ (2 * medios[0].eta)
-				/ (1 - medios[0].moduloro
-						* medios[0].moduloro));
+		var coef = 2 * Math.sqrt(medios[0].eta* 2 / (2 * medios[0].eta)/ (1 - medios[0].moduloro* medios[0].moduloro));
+				
+				
+				
+						
 
 		for ( i = 0; i < numeromedios; i++) {
 
@@ -39,34 +39,29 @@
 			if (medios[i].eta < maximoro)
 				minimae =medios[i].eta;
 			puntonuevo += medios[i].grosor / 2 * k;
-			var coefi = 2 * Math.sqrt(medios[i].eta
-					* 2
-					/ (2 * medios.get(0).getEta())
-					/ (1 - medios[i].moduloro
-							*  medios[i].moduloro));
+			var coefi = 2 * Math.sqrt(medios[i].eta* 2 / (2 * medios[0].eta) / (1 - medios[i].moduloro *  medios[i].moduloro));
 			if (coefi > coef)
 				coef = coefi;
 			var frac = ((120 * Math.PI) /medios[i].eta);
-			if (frac / parseInt(frac) == 1 && frac != 1) {
+		/*	if (frac / parseInt(frac) == 1 && frac != 1) {
 				var f = parseInt(frac);
-				canvas.drawText("η0/" + f, parseFloat(puntonuevo),////////////////
-						height/ 8, paint);////////////////////777
+				//canvas.drawText("η0/" + f, parseFloat(puntonuevo),////////////////
+				//		height/ 8, paint);////////////////////777
 			} else if (frac == 1)
-				canvas.drawText("η0", parseFloat(puntonuevo),
-						height / 8, paint);
+				//canvas.drawText("η0", parseFloat(puntonuevo),
+					//	height / 8, paint);
 			else {
-				canvas.drawText("η0/" + frac, parseFloat(puntonuevo),
-						height / 8, paint);
-			}
-			double COE = (1 + medios[i].moduloro)
-					/ (1 - medios.get(i).getModuloro());
-			canvas.drawText("COE: " + df.format(COE), (float) puntonuevo,
-					canvas.getHeight() * 6 / 8, paint);
+				//canvas.drawText("η0/" + frac, parseFloat(puntonuevo),
+					//	height / 8, paint);
+			}*/
+			var COE = (1 + medios[i].moduloro)/ (1 - medios[i].moduloro);
+			/*canvas.drawText("COE: " + df.format(COE), (float) puntonuevo,
+					canvas.getHeight() * 6 / 8, paint);*/
 
-			if (i != 0 && i != numeromedios - 1) // Solo especifica el grosor
+	//		if (i != 0 && i != numeromedios - 1) // Solo especifica el grosor
 													// para las laminas
 													// intermedias
-/*				drawMultilineText(
+				/*				drawMultilineText(
 						df.format(medios.get(i).getGrosor()) + "\nmm",
 						(int) puntonuevo, canvas.getHeight() * 15 / 16, paint,
 						canvas);
@@ -116,10 +111,10 @@
 		var startY = 0;
 
 		var ro = 0;
-		vra coe = 1;
+		var coe = 1;
 
 		// Comienza a dibujar el DOE de derecha a izquierda
-		for (var a = numeromedios - 1; var >= 0; var--) {
+		for (var a = numeromedios - 1; a >= 0; a--) {
 			var jmax = 0;
 			var imax = 0;
 			var jmin = 1;
@@ -132,13 +127,7 @@
 			ro = m.moduloro;
 			var fi = m.fasei;
 			coe = m.COE;
-			var mult = Math.sqrt(m.eta
-					* 2
-					/ (2 * medios[0].eta)
-					/ (1 - m.moduloro * m.moduloro)
-					* (1 - medios[0].moduloro
-							* medios[0].moduloro);
-
+			var mult = Math.sqrt(m.eta * 2 / (2 * medios[0].eta) / (1 - m.moduloro * m.moduloro) * (1 - medios[0].moduloro * medios[0].moduloro));
 			for (var i = 0; i <= gro;) {
 				// Ecuacion del doe
 				var j = mult
@@ -146,7 +135,7 @@
 								* Math.abs(ro) + 1 + ro * ro));
 
 				var x = parseFloat(marg - i * k - MARGEN - 3);
-				var y = - parseFloat( j * z + height - MARGEN=;
+				var y = - parseFloat( j * z + height - MARGEN);
 				if (y < MARGEN - 1){
 					y = MARGEN - 1;
 				}
@@ -154,6 +143,7 @@
 				var punto = {x:x, y:y};
 
 				puntos.push(punto);
+
 				if (a == numeromedios - 1 && i == 0) {
 					startX = x;
 					startY = y;
@@ -193,8 +183,11 @@
 			startY = endY;
 
 		});
-
+   
 
 		
 
-		}
+		}  puntos.forEach(function(punto){console.log(JSON.stringify(punto))});
+
+			return puntos;
+}

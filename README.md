@@ -24,5 +24,5 @@ $ foreman start
 [Webpage of the project]
 
 
-[Webpage of the project]:http://poyting.herokuapp.com
+[Webpage of the project]:http://poynting.herokuapp.com
 [logo]: http://sonsoleslp.neocities.org/maspeq.png
