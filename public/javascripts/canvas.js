@@ -1,13 +1,23 @@
       	var medios = JSON.parse(document.getElementById("medios").innerHTML);
       	document.getElementById("pruebas").innerHTML+=medios[0].moduloro;
-  
+        var totalmedios = 0;
+         medios.forEach(function(medio){
+         console.log("total medios antes" + totalmedios);
+         totalmedios +=medio.grosor;
+         console.log("grosor del medio" + medio.grosor);
+         console.log("total medios despues" + totalmedios);
+         console.log("////////////");       
+          });
+
+         var hhh = window.innerHeight-65;
+         var wwh  = window.innerWidth;
       function Graph(config) {
         // user defined properties
       //  $( "#myCanvas" ).style.width(600); $( "#myCanvas" ).height(600);
 
         this.canvas = document.getElementById(config.canvasId);
-		this.canvas.width  = window.innerWidth-20;
-		this.canvas.height = window.innerHeight-65;
+	     	this.canvas.width  = window.innerWidth;
+	     	this.canvas.height = window.innerHeight-65;
 
         this.minX = config.minX;
         this.minY = config.minY;
@@ -16,7 +26,7 @@
         this.unitsPerTick = config.unitsPerTick;
 
         // constants
-        this.axisColor = '#aaa';
+        this.axisColor = '#C0C0C0';
         this.font = '8pt "Monte"';
         this.tickSize = 20;
 
@@ -33,9 +43,9 @@
         this.scaleY = this.canvas.height / this.rangeY;
 
         // draw x and y axis
-  //      this.drawXAxis();                         /* AQUÍ EJES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-  //      this.drawYAxis();
-  this.drawDiv();
+            //      this.drawXAxis();                         /* AQUÍ EJES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+            //      this.drawYAxis();
+        this.drawDiv();
 
       }
 
@@ -127,32 +137,26 @@
 
 
       Graph.prototype.drawDiv = function() {
-
+        var coloreje = this.axisColor;
         var alto = this.canvas.height;
         var ancho = this.canvas.width;
         console.log("ancho: "+ancho)
         var context = this.context;
-        var totalmedios = 0;
-         medios.forEach(function(medio){
-           console.log("total medios antes" + totalmedios);
-          totalmedios +=medio.grosor;
-          console.log("grosor del medio" + medio.grosor);
-           console.log("total medios despues" + totalmedios);
-           console.log("////////////");        });
+
 
         var posicion = 0;
         context.save();
         context.beginPath();
         medios.forEach(function(medio){
-          
-          posicion +=medio.grosor/totalmedios*ancho;
-          console.log("pos:"+posicion)
-          context.moveTo(posicion, 0);
-          context.lineTo(posicion, alto);
-          console.log(this.centerX)
-          context.strokeStyle = this.axisColor;
-          context.lineWidth = 2;
-          context.stroke();
+            console.log("nummedios "+medios.length)
+            posicion +=medio.grosor/totalmedios*ancho;
+            console.log("pos:"+posicion)
+            context.moveTo(posicion, 0);
+            context.lineTo(posicion, alto);
+            console.log(this.centerX)
+            context.strokeStyle = coloreje;
+            context.lineWidth = 2;
+            context.stroke();
 
         });
 
@@ -193,25 +197,6 @@
         context.restore();
       };
 
-        Graph.prototype.drawEquation2 = function(equation, color, thickness, puntos) {
-        var context = this.context;
-        context.save();
-        context.save();
-        this.transformContext();
-
-        context.beginPath();
-        
-          puntos.forEach(function(punto){
-          context.lineTo(punto.x, punto.y);
-        })
-
-        context.restore();
-        context.lineJoin = 'round';
-        context.lineWidth = thickness;
-        context.strokeStyle = color;
-        context.stroke();
-        context.restore();
-      };
 
       Graph.prototype.transformContext = function() {
         var context = this.context;
@@ -226,32 +211,59 @@
          */
         context.scale(this.scaleX, -this.scaleY);
       };
+
+
       var myGraph = new Graph({
         canvasId: 'myCanvas',
-        minX: -10,
+        minX: 0,
         minY: -10,
-        maxX: 10,
+        maxX: totalmedios,
         maxY: 10,
         unitsPerTick: 1
       });
 
+      recorrer = function(x){
 
+          var m = 0;
+          var acum = 0;
+ //         console.log("medioslength "+ medios.length)
+          var mult  = 1
+          var j = 1;
+          for( m= 0; m<medios.length-1; m++){
+ //             console.log("m " + m)
+              if (acum < x && x < acum + medios[m].grosor ){
+
+                break;}  
+              acum+= medios[m].grosor;
+          }   
+          var ind = parseInt(m);
+//          console.log("ind " + ind)
+                mult  = Math.sqrt(medios[ind].eta * 2 / (2 *medios[0].eta) / (1 - medios[ind].moduloro * medios[ind].moduloro)* (1 - medios[0].moduloro* medios[0].moduloro));;
+
+      
+         
+      //    var mult = Math.sqrt(medios[0].eta * 2 / (2 * medios[0].eta) / (1 - medios[0].moduloro * medios[0].moduloro) * (1 - medios[0].moduloro * medios[0].moduloro));
+          return 10*mult*Math.sqrt(1+medios[ind].moduloro*medios[ind].moduloro + 2*Math.abs(medios[ind].moduloro)*Math.cos(2*2*Math.PI/medios[ind].lambda*(x-acum/2)  + medios[ind].fasei))-11;
+
+      }
 
 
   //  myGraph.drawDiv();
 	   myGraph.drawEquation(function(x) {
-	        return 10*Math.sqrt(1+medios[0].moduloro*medios[0].moduloro + 2*medios[0].moduloro*Math.cos(3*x))-7;
+	        return recorrer(x)
+          //10*Math.sqrt(1+medios[1].moduloro*medios[1].moduloro + 2*medios[1].moduloro*Math.cos(2*2*Math.PI/medios[1].lambda*x+medios[1].fasei))-11;
 	      }, '#05E28E', 2.5);
+
    //  myGraph.drawEquation2(3, '#05E28E', 2.5);
     
 
-      
- /*
+
+ /* 
        myGraph.drawEquation(function(x) {
-        return 6* Math.sin(2*x);
+        return -x;
       }, '#05E28E', 2.5);
 
-     myGraph.drawEquation(function(x) {
+    myGraph.drawEquation(function(x) {
         return x * x;
       }, 'blue', 2.5);
 

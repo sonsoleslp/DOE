@@ -1,7 +1,7 @@
 
 
 		function doe(width,height){
-			var MARGEN = 10;
+		var MARGEN = 10;
 
 	
 		var numeromedios = medios.length;

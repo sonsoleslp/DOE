@@ -80,9 +80,9 @@
 		if (Math.abs(i) < 0.001){i = 0;} 
 
 		var atan = parseFloat(Math.atan2(i, r));
-
-		return ((-1) * atan);
-
+		var fase = ((-1) * atan);
+		if (fase === -0) fase = 0;
+		return fase;
 	}
 
 	exports.complejox = function(modulo, fase) {

@@ -38,10 +38,10 @@ var Complejo = require('../controllers/complejo.js');
 
   	exports.edit = function(req,res,next){
   		var medio = {};
-  		medio.orden = req.indice;
-  		medio.er=req.session.medios[medio.orden].er;
-  		medio.mur=req.session.medios[medio.orden].mur;
-  		medio.grosor=req.session.medios[medio.orden].grosor;
+  		medio.orden = parseFloat(req.indice);
+  		medio.er=parseFloat(req.session.medios[medio.orden].er);
+  		medio.mur=parseFloat(req.session.medios[medio.orden].mur);
+  		medio.grosor=parseFloat(req.session.medios[medio.orden].grosor);
   	
   		res.render('edit',{medio:medio});
   	}
@@ -53,10 +53,10 @@ var Complejo = require('../controllers/complejo.js');
   		console.log(req.body)
 
   		console.log(req.body.orden)
-  			medio.orden = req.body.orden-1;
-  			medio.grosor = req.body.grosor;
-  			medio.er = req.body.er;
-  			medio.mur = req.body.mur;
+  			medio.orden = parseFloat(req.body.orden-1);
+  			medio.grosor = parseFloat(req.body.grosor);
+  			medio.er = parseFloat(req.body.er);
+  			medio.mur = parseFloat(req.body.mur);
 
 
   		medios.splice(medio.orden, 0, medio);
@@ -70,10 +70,10 @@ var Complejo = require('../controllers/complejo.js');
   		console.log(req.body)
 
   		console.log(req.body.orden)
-  			medio.orden = req.body.orden;
-  			medio.grosor = req.body.grosor;
-  			medio.er = req.body.er;
-  			medio.mur = req.body.mur;
+  			medio.orden = parseFloat(req.body.orden);
+  			medio.grosor = parseFloat(req.body.grosor);
+  			medio.er = parseFloat(req.body.er);
+  			medio.mur = parseFloat(req.body.mur);
 
 
   		medios[medio.orden]=medio;
