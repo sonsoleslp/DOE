@@ -243,7 +243,7 @@
       
          
       //    var mult = Math.sqrt(medios[0].eta * 2 / (2 * medios[0].eta) / (1 - medios[0].moduloro * medios[0].moduloro) * (1 - medios[0].moduloro * medios[0].moduloro));
-          return 10*mult*Math.sqrt(1+medios[ind].moduloro*medios[ind].moduloro + 2*Math.abs(medios[ind].moduloro)*Math.cos(2*2*Math.PI/medios[ind].lambda*(x-acum/2)  + medios[ind].fasei))-11;
+          return 10*mult*Math.sqrt(1+medios[ind].moduloro*medios[ind].moduloro + 2*Math.abs(medios[ind].moduloro)*Math.cos(2*2*Math.PI/medios[ind].lambda*(x-acum + medios[ind].grosor)  + medios[ind].fasei))-11;
 
       }
 
