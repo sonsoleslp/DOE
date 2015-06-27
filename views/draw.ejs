@@ -1,7 +1,6 @@
 <br><br>
-
-
-<div  onresize="Graph(config)" class="all" id="rre">
+ <script src="/javascripts/canvas.js"></script>
+<div  class="all" id="rre">
 <block id="medios"><%= JSON.stringify(medios)%></block>
 <block id="pruebas">Test:</block>
 <style>
@@ -10,14 +9,14 @@
 	}
 </style>
 
-<!--<canvas align="center" id="doe">
+<canvas   id="myCanvas" ></canvas>
 
-</canvas>-->
-    <canvas   id="myCanvas"  ></canvas>
-    
-    <script src="/javascripts/jquery.js"></script>
-    <script src="/javascripts/doe.js"></script>
-    <script src="/javascripts/canvas.js"></script>
+<script src="/javascripts/jquery.js"></script>
+
+<script>
+doe(); 
+window.addEventListener("resize", doe);
+</script>
 
 </div>
 

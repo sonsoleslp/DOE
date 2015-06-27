@@ -33,7 +33,8 @@ nav{
 
 	font-size:22px;
 	vertical-align: middle;
-	
+	display: inline-block;
+	white-space: nowrap;
 	right:0;
 	left:0;
 	background-color: #444;
