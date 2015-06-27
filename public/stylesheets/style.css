@@ -104,13 +104,19 @@ td,th{
 
 }
 .about{
-	margin:20px;}
+	margin:20px;
+	margin-bottom: 4px;
+}
+
+.lang{
+	margin:4px;}	
 
 .ab{
 	display:inline-block;}
 
 .abcont{
-	text-align: center;}
+	text-align: center;
+	display:inline-block;}
 
 .caja{
 	width:60px;
@@ -166,7 +172,9 @@ td,th{
 	width:150px;
 }
 .ab{
-	font-size: 12px;
+	font-size: 14px;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .all{
@@ -177,3 +185,6 @@ position:absolute; /* to place it somewhere on the screen */
 top:60px;
 bottom:0px;} /* makes it lock to the bottom */
 
+#myCanvas{
+	font-size: 18px;
+}

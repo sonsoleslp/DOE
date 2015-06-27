@@ -1,13 +1,13 @@
 // Números complejos
 
 
-	exports.objeto = function(complejo){
+	objeto = function(complejo){
 		var objeto = {real:complejo.real, imaginario:complejo.imaginario};
 
 		return objeto;
 	}
 
-	exports.complejo =function(real,imaginario){
+	complejo =function(real,imaginario){
 		var numero = {real:real, imaginario:imaginario};
 		console.log("complejo   " +numero.real +"  "+numero.imaginario);
 		return numero;
@@ -15,7 +15,7 @@
 
 
 
-	exports.suma = function(c1,c2) {
+	suma = function(c1,c2) {
 		var resultado={};
 		console.log("c1   " + c1.real +"  "+c1.imaginario);
 		console.log("c2   " + c2.real +"  "+c2.imaginario);
@@ -26,7 +26,7 @@
 		return resultado;
 	}
 
-	exports.resta = function(c1,c2) {
+	resta = function(c1,c2) {
 		var resultado={};
 		console.log("restaaa")
 				console.log("c1   " + c1.real +"  "+c1.imaginario);
@@ -38,7 +38,7 @@
 		return resultado;
 	}
 
-	exports.multiplicacion = function(c1,c2) {
+	multiplicacion = function(c1,c2) {
 		var resultado={};
 
 		resultado.real= c1.real*c2.real - c1.imaginario*c2.imaginario;
@@ -48,11 +48,13 @@
 		return resultado;
 	}
 
-	exports.division = function(c1,c2) {
+	division = function(c1,c2) {
 		//c1 dividendo, c2 divisor
 		var resultado={};
 		console.log("div1  "+c2.real+'   '+c2.real+'   '+c2.imaginario+'   '+c2.imaginario)
 		var modulo = c2.real*c2.real + c2.imaginario*c2.imaginario;
+		var modulo1 = c1.real*c1.real + c1.imaginario*c1.imaginario;
+		if(modulo==0 && modulo1 ==0) return 1;
 		if(modulo==0) {
 			resultado= {real:100000000,imaginario:100000000};
 		}else{
@@ -63,13 +65,13 @@
 		return resultado;
 	}
 
-	exports.modulo = function(complejo) {
+	modulo = function(complejo) {
 
 		return Math.sqrt(complejo.real*complejo.real + complejo.imaginario*complejo.imaginario);
 	}
 
 
-	exports.fase = function(complejo) {
+	fase = function(complejo) {
 
 		var r = parseFloat(complejo.real);
 		if (Math.abs(r) < 0.001) {r = 0;}
@@ -85,7 +87,7 @@
 		return fase;
 	}
 
-	exports.complejox = function(modulo, fase) {
+	complejox = function(modulo, fase) {
 		var resultado = {};
 		resultado.real = modulo*Math.cos(fase);
 		resultado.imaginario = modulo*Math.sin(fase);
@@ -93,7 +95,7 @@
 	}
 
 
-	exports.imprimir = function(complejo){
+	imprimir = function(complejo){
 		var res = "";
 		var real = 0; var imaginario = 0;
 
