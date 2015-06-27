@@ -3,7 +3,11 @@
 <div  class="all" id="rre">
 <block id="medios"><%= JSON.stringify(medios)%></block>
 <block id="pruebas">Test:</block>
-
+<style>
+	#medios, #pruebas {
+		display:none;
+	}
+</style>
 
 <canvas   id="myCanvas" ></canvas>
 
@@ -16,8 +20,3 @@
 
 </div>
 
-<style>
-	#medios, #pruebas {
-		display:none;
-	}
-</style>
