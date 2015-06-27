@@ -64,7 +64,7 @@ doe = function(){
         //      this.drawXAxis();                         /* AQUÍ EJES !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
         //      this.drawYAxis();
     this.drawDiv();
-    this.drawTags();
+ //   this.drawTags();
   }
 /*
   Graph.prototype.drawXAxis = function() {
@@ -201,9 +201,8 @@ doe = function(){
     context.beginPath();
     context.moveTo(this.minX, equation(this.minX));
 
-    for(var x = this.minX + this.iteration; x <= this.maxX; x += this.iteration) {
-      context.lineTo(x, equation(x));
-    }
+    for(var x = this.minX + this.iteration; x <= this.maxX; x += this.iteration) { context.lineTo(x, equation(x)); }
+       
 
     context.restore();
     context.lineJoin = 'round';
@@ -213,15 +212,15 @@ doe = function(){
     context.restore();
   };
 
-  Graph.prototype.drawTags = function(equation, color, thickness) {
+  Graph.prototype.drawTags = function() {
+    var context = this.context;
 
     var coloreje = this.axisColor;
     var alto = this.canvas.height;
     var ancho = this.canvas.width;
     var acum = 0;
 
-    var context = this.context;
-
+    
     context.save();
     context.beginPath();
 
@@ -236,7 +235,7 @@ doe = function(){
         context.moveTo(acum, 0);
         context.font = '16px Sans-serif';
 
-        context.fillText(impedancia(medio.eta), acum , 20);
+        context.fillText(impedancia(medio.eta), acum , 30);
         context.font = '14px "Monte"';
         context.fillText((medio.grosor)+' mm', acum , alto-30);
         // console.log(this.centerX)
@@ -321,8 +320,8 @@ doe = function(){
   
 
 
-  myGraph.drawEquation(function(x) {return recorrer(x)}, '#05E28E', 2.5);
-
+  myGraph.drawEquation(function(x) {return recorrer(x)}, '#05E28E', 4.5);
+  myGraph.drawTags();
   console.log("DOE done")
 
 

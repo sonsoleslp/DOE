@@ -9,31 +9,29 @@
 
 	exports.complejo =function(real,imaginario){
 		var numero = {real:real, imaginario:imaginario};
-		console.log("complejo   " +numero.real +"  "+numero.imaginario);
+		// console.log("complejo   " +numero.real +"  "+numero.imaginario);
 		return numero;
-	};
-
-
+	}
 
 	exports.suma = function(c1,c2) {
 		var resultado={};
-		console.log("c1   " + c1.real +"  "+c1.imaginario);
-		console.log("c2   " + c2.real +"  "+c2.imaginario);
+		// console.log("c1   " + c1.real +"  "+c1.imaginario);
+		// console.log("c2   " + c2.real +"  "+c2.imaginario);
 		resultado.real= c1.real + c2.real;
 		resultado.imaginario=c1.imaginario + c2.imaginario;
-			console.log("sumaaaaaaaaaa   " +resultado.real +"  "+resultado.imaginario);
+			// console.log("sumaaaaaaaaaa   " +resultado.real +"  "+resultado.imaginario);
 
 		return resultado;
 	}
 
 	exports.resta = function(c1,c2) {
 		var resultado={};
-		console.log("restaaa")
-				console.log("c1   " + c1.real +"  "+c1.imaginario);
-		console.log("c2   " + c2.real +"  "+c2.imaginario);
+		// console.log("restaaa")
+				// console.log("c1   " + c1.real +"  "+c1.imaginario);
+		// console.log("c2   " + c2.real +"  "+c2.imaginario);
 		resultado.real=c1.real - c2.real;
 		resultado.imaginario=c1.imaginario - c2.imaginario;
-					console.log("restaaa   " +resultado.real +"  "+resultado.imaginario);
+					// console.log("restaaa   " +resultado.real +"  "+resultado.imaginario);
 
 		return resultado;
 	}
@@ -51,12 +49,12 @@
 	exports.division = function(c1,c2) {
 		//c1 dividendo, c2 divisor
 		var resultado={};
-		console.log("div1  "+c2.real+'   '+c2.real+'   '+c2.imaginario+'   '+c2.imaginario)
+		// console.log("div1  "+c2.real+'   '+c2.real+'   '+c2.imaginario+'   '+c2.imaginario)
 		var modulo = c2.real*c2.real + c2.imaginario*c2.imaginario;
 		if(modulo==0) {
 			resultado= {real:100000000,imaginario:100000000};
 		}else{
-			console.log("modulo" +modulo)
+			// console.log("modulo" +modulo)
 			resultado.real= (c1.real*c2.real + c1.imaginario*c2.imaginario)/modulo;
 			resultado.imaginario= (c1.imaginario*c2.real - c1.real*c2.imaginario)/modulo;
 		}
@@ -67,7 +65,6 @@
 
 		return Math.sqrt(complejo.real*complejo.real + complejo.imaginario*complejo.imaginario);
 	}
-
 
 	exports.fase = function(complejo) {
 
@@ -91,7 +88,6 @@
 		resultado.imaginario = modulo*Math.sin(fase);
 		return resultado;
 	}
-
 
 	exports.imprimir = function(complejo){
 		var res = "";

@@ -3,6 +3,19 @@
 <br>
 <a href="/list" ><img id="welcome" src="/images/favicon.png"></a>
 
-<h1><%= title %></h1>
-<p>Bienvenido a <%= title %></p>
+<h1 id="titulo"></h1>
+<p id="descr"></p>
 </div>
+<script>
+var language = navigator.language || navigator.browserLanguage;
+var url = window.location.href;
+if(language!== "es"&& language!== "gl" && language!== "ca" && language!== "eu"){
+	document.getElementById("titulo").innerHTML += "SWD";
+	document.getElementById("descr").innerHTML += "Standing Wave Diagram";
+} else {
+	document.getElementById("titulo").innerHTML += "DOE";
+	document.getElementById("descr").innerHTML += "Diagrama de Onda Estacionaria";
+
+}
+
+</script>

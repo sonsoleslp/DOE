@@ -2,7 +2,7 @@
 <br><br><br>
 
 <table class="lista" align="center"  cellspacing="0" cellpadding="0">
-  <tr class="cabecera">
+  <tr class="cabecera" id= "listado">
     <th>Medio</th>
     <th>Grosor</th> 
     <th>Epsilon relativa (ε<sub>r</sub>)</th>
@@ -28,3 +28,21 @@
 
 <%}%>
 </table>
+
+<script>
+var language = navigator.language || navigator.browserLanguage;
+var url = window.location.href;
+if(language!== "es" && language!== "gl" && language!== "ca" && language!== "eu"){
+	document.getElementById("listado").innerHTML = " <th>Medium</th>"
+   	+" <th>Thickness</th> "
+    +" <th>Relative Epsilon (ε<sub>r</sub>)</th>"
+    +"  <th>Relative Mu (μ<sub>r</sub>)</th> "
+    +"  <th>Wavelength (λ)</th> "
+    +"  <th>Intrinsec impedance (η)</th>"
+    +"  <th>|ρ|</th> "
+  	+"   <th>SWR</th> "
+    + " <th><a href=\"/add\"><img id=\"mini\" title=\"Add\" src=\"/images/add.png\"></a> </th>";
+	
+}
+
+</script>

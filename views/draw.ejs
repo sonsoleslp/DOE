@@ -3,20 +3,21 @@
 <div  class="all" id="rre">
 <block id="medios"><%= JSON.stringify(medios)%></block>
 <block id="pruebas">Test:</block>
-<style>
-	#medios, #pruebas {
-		display:none;
-	}
-</style>
+
 
 <canvas   id="myCanvas" ></canvas>
 
 <script src="/javascripts/jquery.js"></script>
 <script src="/javascripts/complejo.js"></script>
 <script>
-doe(); 
-window.addEventListener("resize", doe);
+	doe(); 
+	window.addEventListener("resize", doe);
 </script>
 
 </div>
 
+<style>
+	#medios, #pruebas {
+		display:none;
+	}
+</style>
