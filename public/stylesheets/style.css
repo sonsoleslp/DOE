@@ -1,14 +1,12 @@
-/* latin */
+
+
 @font-face {
-  font-family: 'Monte';
-  font-style: normal;
-  font-weight: 400;
-
-  src: local('Montserrat-Regular'), url(https://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYPk_vArhqVIZ0nv9q090hN8.woff2) format('woff2');
-
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+	font-family: 'Monte';
+	src: url('/fonts/Montserrat-Regular.eot');
+	src: local('☺'), url('/fonts/Montserrat-Regular.woff') format('woff'), url('/fonts/Montserrat-Regular.ttf') format('truetype'), url('/fonts/Montserrat-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;  
 }
-
 
 
 html{
@@ -19,7 +17,7 @@ html{
 body {
 
   font-size: 14px;
-  font-family: "Monte","Lucida Console","Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Monte", Sans-Serif,"Lucida Console","Lucida Grande", Helvetica, Arial;
 }
 
 a {
@@ -188,6 +186,7 @@ bottom:0px;} /* makes it lock to the bottom */
 
 #myCanvas{
 	font-size: 18px;
+	font-family: "Monte", Arial, Sans-Serif;
 }
 
 .bl{
@@ -206,18 +205,7 @@ bottom:0px;} /* makes it lock to the bottom */
 	border-radius: 15px 0px 0px 0px;
 }
 
-.inicio{
 
-	-webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-image: url('/images/wallpaper.jpg');
-	background-size: cover;
-	position:absolute;
-	top:0;bottom:0;left:0;right:0;
-	z-index: -100;
 #welcomeno:hover{
   /* Webkit for Chrome and Safari */
   -webkit-transform: scale(1.2, 1.2); // This is the enlarged size scale of the image.
@@ -250,4 +238,33 @@ bottom:0px;} /* makes it lock to the bottom */
   -ms-transform: scale(1, 1);
   -ms-transition-duration: 500ms;
   -ms-transition-timing-function: ease-out;
+}
+
+@media screen and (max-width: 700px) {
+    nav {
+	    font-size:12px;
+		vertical-align: middle;
+		display: inline-block;
+		white-space: nowrap;
+		right:0;
+		left:0;
+		background-color: #444;
+		top:0;
+		position:absolute;
+		/*width:100%;*/
+		color:#ccc;
+		height:60px;  
+    }
+    .barra{
+		margin:3px;
+		text-align: center;
+		padding-left:20px;
+		padding-right:10px;
+		vertical-align: middle;
+		line-height: 60px;
+	}
+	.logo{
+		height: 20px;
+	}
+
 }
