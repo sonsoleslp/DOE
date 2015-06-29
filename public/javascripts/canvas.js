@@ -26,6 +26,20 @@ doe = function(){
           return coc+'η₀' ;}
   }
 
+  multiline = function(context,text,x,y){
+    var lines = text.split("\n");
+    var alto = 14;
+    var ac = y;
+
+    for(var i = 0; i<lines.length; i++){
+
+      context.fillText(lines[i], x , ac);
+      ac+=alto;
+    }
+
+
+
+  }
   
 
   function Graph(config) {
@@ -233,10 +247,9 @@ doe = function(){
         // console.log("nummedios "+medios.length)
         // console.log("pos:"+posicion)
         context.moveTo(acum, 0);
-        context.font = '16px Sans-serif';
-
+         if(window.innerWidth > 950 ) {context.font = '16px "Monte"';} else {context.font = '12px "Monte"';}
         context.fillText(impedancia(medio.eta), acum , 30);
-        context.font = '14px "Monte"';
+         if(window.innerWidth > 950 ) {context.font = '14px "Monte"';} else {context.font = '10px "Monte"';}
         context.fillText((medio.grosor)+' mm', acum , alto-30);
         // console.log(this.centerX)
         context.strokeStyle = coloreje;
@@ -252,11 +265,13 @@ doe = function(){
       for(i = 0; i<medios.length-1; i++){
         var medio = medios[i];
          context.moveTo(div, 0);
-        context.font = '16px "Monte"';
+
+         if(window.innerWidth > 950 ) {context.font = '14px "Monte"';} else {context.font = '10px "Monte"';}
         var ro  = complejox(medio.moduloro, medio.fasei)
         var uno = complejo(1,0);
-        
-        context.fillText('Z = '+ (imprimir( multiplicacion( complejo(medio.eta,0), division(suma(uno,ro), resta(uno,ro)) ))) , div , alto/4-12);
+        var imped =  'Z = \n'+ (imprimir( multiplicacion( complejo(medio.eta,0), division(suma(uno,ro), resta(uno,ro)) ))) +'\n\u2126' ;
+        multiline(context, imped, div , alto/4-12);
+         if(window.innerWidth > 950 ) {context.font = '16px "Monte"';} else {context.font = '10px "Monte"';} 
         context.fillText('|ρ| = '+ medio.moduloro , div , 3*alto/4-12);
         context.fillText('φ\u2080 = '+ Math.round((medio.fasei) * 100) / 100 , div , 3*alto/4+2); 
 
@@ -328,3 +343,4 @@ doe = function(){
 }
  
 
+ 

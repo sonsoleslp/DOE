@@ -1,21 +1,29 @@
-<br><br>
-<div class="center">
+<div id="inicio" class="inicio">
+<br><br><br><br>
+<div id="principal" class="center">
 <br>
-<a href="/list" ><img id="welcome" src="/images/favicon.png"></a>
+<!-- <a href="/list" ><img id="welcome" src="/images/favicon.png"></a> -->
 
 <h1 id="titulo"></h1>
-<p id="descr"></p>
+<h3 id="descr"></h3>
+
+<address>poynting.slp@gmail.com</address>
+
 </div>
 <script>
 var language = navigator.language || navigator.browserLanguage;
 var url = window.location.href;
 if(language!== "es"&& language!== "gl" && language!== "ca" && language!== "eu"){
-	document.getElementById("titulo").innerHTML += "SWD";
-	document.getElementById("descr").innerHTML += "Standing Wave Diagram";
+/*	document.getElementById("titulo").innerHTML += "SWD";
+	document.getElementById("descr").innerHTML += "Standing Wave Diagram";*/
+	document.getElementById("principal").innerHTML ='	<a href="/list" ><img id="welcome" src="/images/splien.png"></a>';
 } else {
-	document.getElementById("titulo").innerHTML += "DOE";
+/*	document.getElementById("titulo").innerHTML += "DOE";
 	document.getElementById("descr").innerHTML += "Diagrama de Onda Estacionaria";
-
+*/
+	document.getElementById("principal").innerHTML ='<a href="/list" ><img id="welcome" src="/images/spli.png"></a>';
 }
 
+
 </script>
+</div>

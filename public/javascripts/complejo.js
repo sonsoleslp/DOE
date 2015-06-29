@@ -7,7 +7,7 @@
 		return objeto;
 	}
 
-	complejo =function(real,imaginario){
+	complejo = function(real,imaginario){
 		var numero = {real:real, imaginario:imaginario};
 		console.log("complejo   " +numero.real +"  "+numero.imaginario);
 		return numero;
@@ -108,20 +108,19 @@
 		var i = numero.imaginario.toFixed(2);
 
 		if (numero.imaginario == 0)
-			res = r + "\n";
+			res = r ;
 		else if (numero.real == 0)
-			res = "j " + i + "\n";
+			res = "j " + i ;
 
 		else if (numero.imaginario == 0 && numero.real == 0)
-			res = "" + 0 + "\n";
+			res = "" + 0 ;
 		else {
 			res = r;
 
 			if (numero.imaginario < 0)
-				res += "\n- j " + -i + "\n";
-		}
+				res += "\n- j " + -i ;	}
 		if (numero.imaginario > 0)
-			res += "\n+ j " + i + "\n";
+			res += "\n+ j " + i ;
 		return res;
 	}
 

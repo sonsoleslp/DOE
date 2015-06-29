@@ -2,7 +2,7 @@ var complejo = require('../controllers/complejo.js');
 
 
 exports.diagrama = function(req,res,next){
-
+console.log("Calculando diagrama");
 		var freq = req.session.freq;
 		var medios = req.session.medios;
 		var numeromedios = medios.length;
@@ -18,23 +18,23 @@ exports.diagrama = function(req,res,next){
 		var fasei = 0;
 		m.fasei=fasei;
 		var zvista = complejo.complejo(m.eta,0);
-		console.log(complejo.imprimir(zvista))
+		// console.log(complejo.imprimir(zvista))
 		var zant = complejo.objeto(zvista);
 
-		console.log("zant "+complejo.imprimir(zant))
-		console.log("eta "+complejo.imprimir(complejo.complejo(m.eta,0)));
+		// console.log("zant "+complejo.imprimir(zant))
+		// console.log("eta "+complejo.imprimir(complejo.complejo(m.eta,0)));
 		var ro = complejo.division(      complejo.resta(zant  , complejo.complejo(m.eta, 0)   )        ,        complejo.suma(complejo.complejo(m.eta,0) , zant)         ); 
-				console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa"+m.eta)
+		// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaa"+m.eta)
 
-		console.log("rooo1  "+ complejo.imprimir(ro));
+		// console.log("rooo1  "+ complejo.imprimir(ro));
 		var COE = 1;
 		m.COE = COE.toFixed(2)
-		console.log(m.grosor)
+		// console.log(m.grosor)
 			
 
-			console.log(" ro: " +  moduloro
+		/*	console.log(" ro: " +  moduloro
 					+ ",  coe: " + COE + ", zvista: " + complejo.imprimir(zvista)  + ", fraccion: "
-					+ m.grosor / m.lambda );
+					+ m.grosor / m.lambda );*/
 
 		for (var i = numeromedios - 2; i >= 0; i--) {
 
@@ -50,7 +50,7 @@ exports.diagrama = function(req,res,next){
 			var den2 = complejo.complejo(0, 0);
 			var factor = complejo.complejo(m.eta, 0);
 
-			console.log("factor "+complejo.imprimir(factor));
+			// console.log("factor "+complejo.imprimir(factor));
 
 
 		
@@ -59,9 +59,9 @@ exports.diagrama = function(req,res,next){
 			den1 = complejo.complejo(m.eta*Math.cos(arg), 0);
 			den2 = complejo.multiplicacion(complejo.complejo(0,1),complejo.multiplicacion(zant,complejo.complejo(Math.sin(arg), 0)));
 			zvista = complejo.division(complejo.multiplicacion(factor,complejo.suma(num1,num2)),complejo.suma(den1,den2));
-			console.log("zv"+complejo.imprimir(zvista));
+			// console.log("zv"+complejo.imprimir(zvista));
 		    ro = complejo.division(      complejo.resta(zant, complejo.complejo(m.eta,0)   )        ,        complejo.suma(complejo.complejo(m.eta,0) , zant)         );
-			console.log("roooooooooooo"+complejo.imprimir(ro));
+			// console.log("roooooooooooo"+complejo.imprimir(ro));
 
 			moduloro = complejo.modulo(ro);
 			COE = (1 + moduloro) / (1 - moduloro);
@@ -69,9 +69,9 @@ exports.diagrama = function(req,res,next){
 			m.moduloro = moduloro.toFixed(2)
 			m.fasei = complejo.fase(ro);
 			
-			console.log(" ro: " +  moduloro
+/*			console.log(" ro: " +  moduloro
 					+ ",  coe: " + COE + ", zvista: " + complejo.imprimir(zvista)  + ", fraccion: "
-					+ m.grosor / m.lambda + ", fase inicial:  " + fasei);
+					+ m.grosor / m.lambda + ", fase inicial:  " + fasei);*/
 
 			zant = complejo.objeto(zvista);
 

@@ -19,7 +19,7 @@
 		// console.log("c2   " + c2.real +"  "+c2.imaginario);
 		resultado.real= c1.real + c2.real;
 		resultado.imaginario=c1.imaginario + c2.imaginario;
-			// console.log("sumaaaaaaaaaa   " +resultado.real +"  "+resultado.imaginario);
+		// console.log("sumaaaaaaaaaa   " +resultado.real +"  "+resultado.imaginario);
 
 		return resultado;
 	}
@@ -27,11 +27,11 @@
 	exports.resta = function(c1,c2) {
 		var resultado={};
 		// console.log("restaaa")
-				// console.log("c1   " + c1.real +"  "+c1.imaginario);
+		// console.log("c1   " + c1.real +"  "+c1.imaginario);
 		// console.log("c2   " + c2.real +"  "+c2.imaginario);
 		resultado.real=c1.real - c2.real;
 		resultado.imaginario=c1.imaginario - c2.imaginario;
-					// console.log("restaaa   " +resultado.real +"  "+resultado.imaginario);
+		// console.log("restaaa   " +resultado.real +"  "+resultado.imaginario);
 
 		return resultado;
 	}
