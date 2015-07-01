@@ -33,22 +33,6 @@ exports.Medio = Medio;
 
 
 sequelize.sync().then(function(){
-	Medio.count().then(function(count){
-	
-	if(count===0){console.log('aqui');
-	Medio.bulkCreate(
-		[ {grosor: 50, mur:1, er: 1, orden: 1},
-		  {grosor: 12.5, mur:1, er: 4, orden: 2},
-		  {grosor: 50, mur:1, er: 1, orden: 3},
-		]
-		
 
-		).then(function(){
-			
-			console.log('Base de datos(tabla medios) inicializada');
-		
-		});
-	};
-});
 
 });

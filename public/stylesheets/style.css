@@ -10,7 +10,7 @@
 
 
 html{
-	font-family: "Monte";
+	font-family: 'Monte';
 	
 }
 
@@ -292,5 +292,6 @@ bottom:0px;} /* makes it lock to the bottom */
 	.barra2{
 		display:none;
 	}
+
 
 }
