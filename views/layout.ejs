@@ -6,12 +6,20 @@
   </head>
   <body>
     <nav>
-      <span class="barra2"><img class="logo" src="/images/favicon.png"></span>
-      <span class="barra"><a href="/">Home</a></span>
-      <span class="barra"><a href="/draw">Draw</a></span>
-      <span class="barra"><a href="/list">List</a></span>
-      <span class="barra"><a href="/about">About</a></span>
+      <span class="barra2"><img class="logo" src="images/favicon.png"></span>
+      <span class="barra3"><img class="logo" src="images/favicon.png"></span>
 
+      <span class="barra"><a href="/">Home</a></span>
+      <span class="barra3"><a href="/"><img class="logo" id="home" src="images/home.png"></a></span>      
+
+      <span class="barra"><a href="/draw">Draw</a></span>
+      <span class="barra3"><a href="/draw"><img class="logo" id="draw" src="images/pencil.png"></a></span>
+
+      <span class="barra"><a href="/list">List</a></span>
+      <span class="barra3"><a href="/list"><img class="logo" id="list" src="images/list.png"></a></span>
+
+      <span class="barra"><a href="/about">About</a></span>
+      <span class="barra3"><a href="/about"><img class="logo" id="about" src="images/about.png"></a></span>
     </nav>
     <br><br>
     <section>
@@ -24,5 +32,33 @@
     <a href="https://github.com/sonsoleslp/DOE"><img style="position: absolute; top: 0; right: 0; border: 0;" src="/images/fork.png" alt="Fork me on GitHub"></a>
 
 -->
+<script>
+document.getElementById('home').onmouseover = function () {
+  this.src = "images/homeh.png";
+}
+document.getElementById('home').onmouseout = function () {
+  this.src = "images/home.png";
+}
+document.getElementById('list').onmouseover = function () {
+  this.src = "images/listh.png";
+}
+document.getElementById('list').onmouseout = function () {
+  this.src = "images/list.png";
+}
+document.getElementById('draw').onmouseover = function () {
+  this.src = "images/pencilh.png";
+}
+document.getElementById('draw').onmouseout = function () {
+  this.src = "images/pencil.png";
+}
+document.getElementById('about').onmouseover = function () {
+  this.src = "images/abouth.png";
+}
+document.getElementById('about').onmouseout = function () {
+  this.src = "images/about.png";
+}
+
+
+</script>
   </body>
 </html>

@@ -240,23 +240,12 @@ bottom:0px;} /* makes it lock to the bottom */
   -ms-transition-timing-function: ease-out;
 }
 
-
-     .barra3{
-		margin:3px;
-		text-align: center;
-		padding-left:20px;
-		padding-right:10px;
-		vertical-align: middle;
-		line-height: 60px;
-		display:none;
-	}
-
 @media screen and (max-width: 700px) {
     nav {
 	    font-size:12px;
 		vertical-align: middle;
-		display: inline-block;
-		white-space: nowrap;
+		/*display: inline-block;*/
+		/*white-space: nowrap;*/
 		right:0;
 		left:0;
 		background-color: #444;
@@ -265,7 +254,6 @@ bottom:0px;} /* makes it lock to the bottom */
 		/*width:100%;*/
 		color:#ccc;
 		height:60px;  
-		
     }
     .barra{
 		margin:3px;
@@ -274,23 +262,9 @@ bottom:0px;} /* makes it lock to the bottom */
 		padding-right:10px;
 		vertical-align: middle;
 		line-height: 60px;
-		display:none;
-	}
-	.barra3{
-		display:inline-block;
-	margin:3px;
-	text-align: center;
-	padding-left:20px;
-	padding-right:10px;
-	vertical-align: middle;
-	line-height: 60px;
 	}
 	.logo{
-		height: 30px;
-		vertical-align: middle;
-	}
-	.barra2{
-		display:none;
+		height: 20px;
 	}
 
 }

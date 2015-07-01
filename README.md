@@ -11,7 +11,7 @@ Esta aplicación proporciona una herramienta sencilla para estudiar el comportam
 This app provides a basic tool in order to study the behavior of Monochromatic Homogenous Plane Waves when traveling through different media. In this first version, only media without loss are studied, but it is indeed capable of calculating complex impedances, which appear when there are media with a thickness that is not a multiple of a quarter-wavelength. For any imaginable case, this application will draw the Standing Wave Diagram and specify the input impedances, the VSWR, and the reflection coefficients for each discontinuity.
 
 ### Installation
-(Es necesario disponer de heroku toolbelt)
+(Heroku Toolbelt necessary)
 
 ```sh
 $ git clone https://github.com/sonsoleslp/ProyectoQuiz
