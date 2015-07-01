@@ -283,6 +283,7 @@ doe = function(){
         context.lineWidth = 2;
         context.stroke();
         div += medios[i+1].grosor/totalmedios*ancho;
+        context.font = '20pt "Monte"';
       }
 
     }

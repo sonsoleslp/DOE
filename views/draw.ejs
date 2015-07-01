@@ -1,5 +1,5 @@
 <br><br>
- <script src="/javascripts/canvas.js"></script>
+<script src="/javascripts/canvas.js"></script>
 <div  class="all" id="rre">
 <block id="medios"><%= JSON.stringify(medios)%></block>
 <block id="pruebas">Test:</block>
@@ -13,10 +13,11 @@
 
 <script src="/javascripts/jquery.js"></script>
 <script src="/javascripts/complejo.js"></script>
-<script>
-	doe(); 
-	window.addEventListener("resize", doe);
-</script>
+
 
 </div>
-
+<script>
+	$(window).bind("load", doe);
+	window.addEventListener("resize", doe);
+	//doe();
+</script>
