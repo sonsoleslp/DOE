@@ -9,7 +9,8 @@ var partials = require('express-partials');
 var methodOverride = require('method-override');
 var session = require('express-session');
 var routes = require('./routes/index');
-
+var models = require('./models/models');
+var visitas = 0;
 var app = express();
 
 // view engine setup
@@ -27,6 +28,26 @@ app.use(session());
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req,res,next){
+    console.log('sesion:  ' +req.session);
+     req.session.count = req.session.count || 0;
+    var contadorController = require('./controllers/visitas_controller');
+        if(visitas ===0) visitas = models.visitasprincipio;
+
+        if(req.session.count=== 0) { visitas++;
+     contadorController.nuevavisita(req,res,next,JSON.stringify(req.session));}
+     req.session.count++;
+     
+     console.log("visitas: "+ visitas);
+
+
+    
+     req.session.visitas=visitas;
+
+        
+
+    next();
+});
 
 
 //Helpers dinámicos:
@@ -70,6 +91,7 @@ if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
+            visitas: visitas,
             message: err.message,
             error: err
         });

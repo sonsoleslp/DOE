@@ -1,5 +1,5 @@
 var path = require('path');
-
+var visitasprincipio;
 var url = process.env.DATABASE_URL.match(/(.*)\:\/\/(.*?)\:(.*)@(.*)\:(.*)\/(.*)/);
 var DB_name = (url[6]||null);
 var user = (url[2]||null);
@@ -21,18 +21,22 @@ var sequelize = new Sequelize(DB_name,user,pwd,
 	});
 
 //Importar definición de la tabla Medios
-var medio_path = path.join(__dirname,'medios');
-var Medio = sequelize.import(medio_path);
+
+//Importar definición de la tabla de visitas
+var cont_path = path.join(__dirname, 'contador');
+var Contador = sequelize.import(cont_path);
 
 
 
 //los quizes pertenecen a un usuario registrado
 
 // exportar tablas
-exports.Medio = Medio;
 
-
+exports.Contador = Contador;
 sequelize.sync().then(function(){
-
+		Contador.count().then(function(count){
+		visitasprincipio = count || 0;
+		exports.visitasprincipio = visitasprincipio;
+	});
 
 });
