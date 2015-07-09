@@ -107,6 +107,10 @@ td,th{
 	margin-bottom: 4px;
 }
 
+#error{
+	max-width: 70%;
+}
+
 .lang{
 	margin:4px;}	
 
