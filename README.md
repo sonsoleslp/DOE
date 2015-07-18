@@ -14,8 +14,8 @@ This app provides a basic tool in order to study the behavior of Monochromatic H
 (Heroku Toolbelt necessary)
 
 ```sh
-$ git clone https://github.com/sonsoleslp/ProyectoQuiz
-$ cd ProyectoQuiz
+$ git clone https://github.com/sonsoleslp/DOE
+$ cd DOE
 $ npm install
 $ foreman start
 ```
