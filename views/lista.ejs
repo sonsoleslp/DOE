@@ -5,10 +5,10 @@
   <tr class="cabecera" id= "listado">
     <th class="tl">Medio</th>
     <th>Grosor</th> 
-    <th>Longitud de onda (λ)</th> 
-    <th>Epsilon relativa (ε<sub>r</sub>)</th>
-    <th>Mu relativa (μ<sub>r</sub>)</th> 
-    <th>Impedancia intrínseca (η)</th>
+    <th><solo>Longitud de onda (</solo>λ<solo>)</solo></th> 
+    <th><solo>Epsilon relativa (</solo>ε<sub>r</sub><solo>)</solo></th>
+    <th><solo>Mu relativa (</solo>μ<sub>r</sub><solo>)</solo></th> 
+    <th><solo>Impedancia intrínseca (</solo>η<solo>)</solo></th>
     <th>|ρ| </th> 
     <th>COE</th> 
     <th class ="tr"><a href="/add"><img id="mini" title="Add" src="/images/add.png"></a> </th>
@@ -18,8 +18,8 @@
 	<%if (i==medios.length-1){%><td class="bl" id="gris"><%=i +1%></td>
     <%}else{%>
 	<td  id="gris"><%=i +1%></td><%}%>
-	<td><%=medios[i].grosor%>  mm</td>
-    <td><%=Math.round((medios[i].lambda) * 100) / 100 %>  mm</td>
+	<td><%=medios[i].grosor%> <solo> mm</solo></td>
+    <td><%=Math.round((medios[i].lambda) * 100) / 100 %> <solo> mm</solo></td>
 	<td><%=medios[i].er%></td>
 	<td><%=medios[i].mur%></td>
 	<td><%=medios[i].eta.toFixed(2)%></td>
@@ -45,10 +45,10 @@
         if(language!== "es" && language!== "gl" && language!== "ca" && language!== "eu"){
         	document.getElementById("listado").innerHTML = " <th>Medium</th>"
            	+" <th>Thickness</th> "
-            +"  <th>Wavelength (λ)</th> "
-            +" <th>Relative Epsilon (ε<sub>r</sub>)</th>"
-            +"  <th>Relative Mu (μ<sub>r</sub>)</th> "
-            +"  <th>Intrinsec impedance (η)</th>"
+            +"  <th><solo>Wavelength (</solo>λ<solo>)</solo></th> "
+            +" <th><solo>Relative Epsilon (</solo>ε<sub>r</sub><solo>)</solo></th>"
+            +"  <th><solo>Relative Mu (</solo>μ<sub>r</sub><solo>)</solo></th> "
+            +"  <th><solo>Intrinsec impedance (</solo>η<solo>)</solo></th>"
             +"  <th>|ρ|</th> "
           	+"   <th>SWR</th> "
             + " <th><a href=\"/add\"><img id=\"mini\" title=\"Add\" src=\"/images/add.png\"></a> </th>";
