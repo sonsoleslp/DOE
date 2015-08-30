@@ -33,26 +33,18 @@ nav{
 	vertical-align: middle;
 	display: inline-block;
 	white-space: nowrap;
-	
+	right:0;
+	left:0;
 	background-color: #444;
-	margin:0;
-	padding:0;
-	border:0;
-	width:100%;
+	top:0;
 	position:absolute;
-	width:inherit;
+	/*width:100%;*/
 	color:#ccc;
 	height:60px;
-	margin:-10px;
-	left:0;
-	right:0;
-    width:inherit;
-     
+	
 }
 
-body{
-	width:inherit;
-}
+
 
 .barra{
 	margin:3px;
