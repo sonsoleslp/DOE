@@ -27,7 +27,7 @@ a {
 .center{
 	text-align: center;
 }
-nav{
+#arriba{
 
 	font-size:22px;
 	vertical-align: middle;
@@ -257,7 +257,7 @@ bottom:0px;} /* makes it lock to the bottom */
 	}
 
 @media screen and (max-width: 700px) {
-    nav {
+    #arriba {
 	    font-size:12px;
 		vertical-align: middle;
 		display: inline-block;
@@ -300,3 +300,8 @@ bottom:0px;} /* makes it lock to the bottom */
 
 	solo{display:none;}
 }
+/*
+#arriba{position:absolute;
+
+}
+body{position:absolute; margin:0;padding:0;top:0;}*/
