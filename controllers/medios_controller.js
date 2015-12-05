@@ -58,8 +58,8 @@ var Complejo = require('../controllers/complejo.js');
 		medio.er = parseFloat(req.body.er)|| 1;
 		medio.mur = parseFloat(req.body.mur)|| 1;
 		console.log("New");
-
-  		medios.splice(medio.orden, 0, medio);
+    if(medio.orden >= 0 && medio.orden<= medios.length){
+  		medios.splice(medio.orden, 0, medio);}
   		next();
   	}
 
@@ -70,11 +70,12 @@ var Complejo = require('../controllers/complejo.js');
   		// console.log(req.body)
   		console.log("Updating");
   		// console.log(req.body.orden)
-		medio.orden = parseFloat(req.body.orden) || medios.length;
+		medio.orden = req.body.orden //|| medios.length;
 		medio.grosor = parseFloat(req.body.grosor )|| 10;
 		medio.er = parseFloat(req.body.er) || 1;
 		medio.mur = parseFloat(req.body.mur) || 1;
-  		medios[medio.orden]=medio;
+    if(medio.orden >=0 && medio.orden < medios.length){
+  		medios[medio.orden]=medio;}
   		next();
   	}
 
