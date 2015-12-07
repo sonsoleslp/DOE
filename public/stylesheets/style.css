@@ -108,10 +108,6 @@ td,th{
 
 }
 
-td, th{
-	font-size: 0.5em;
-	padding:-2px;
-}
 .about{
 	margin:20px;
 	margin-bottom: 4px;
@@ -283,6 +279,11 @@ bottom:0px;} /* makes it lock to the bottom */
 		height:60px;  
 		
     }
+    
+td, th{
+	font-size: 0.5em;
+	padding:-2px;
+}
     .barra{
 		margin:3px;
 		text-align: center;
