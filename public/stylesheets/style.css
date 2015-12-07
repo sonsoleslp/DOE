@@ -39,7 +39,8 @@ a {
 	left:0;
 	background-color: #444;
 	top:0;
-	position:absolute;
+	width:100%;
+	position:fixed;
 	/*width:100%;*/
 	color:#ccc;
 	height:60px;
@@ -104,6 +105,12 @@ td,th{
 .fila{
 	background-color:  #fafafa;
 
+
+}
+
+td, th{
+	font-size: 0.5em;
+	padding:-2px;
 }
 .about{
 	margin:20px;
@@ -270,8 +277,8 @@ bottom:0px;} /* makes it lock to the bottom */
 		left:0;
 		background-color: #444;
 		top:0;
-		position:absolute;
-		/*width:100%;*/
+		position:fixed;
+		width:100%;
 		color:#ccc;
 		height:60px;  
 		
@@ -303,7 +310,9 @@ bottom:0px;} /* makes it lock to the bottom */
 	}
 
 	solo{display:none;}
+	#welcome{max-height: 20em}
 }
+
 /*
 #arriba{position:absolute;
 
