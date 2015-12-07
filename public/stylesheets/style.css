@@ -27,6 +27,8 @@ a {
 .center{
 	text-align: center;
 }
+
+
 #arriba{
 
 	font-size:22px;
@@ -41,6 +43,7 @@ a {
 	/*width:100%;*/
 	color:#ccc;
 	height:60px;
+	z-index: 999;
 	
 }
 
